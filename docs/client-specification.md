@@ -64,7 +64,7 @@ A feature toggle is defined as:
     }
 ```
 
-A simple demo of the isEnable function in JavaScript-style (most implementation will probalby be more functional):
+A simple demo of the isEnable function in JavaScript-style (most implementation will probably be more functional):
 
 ```javascript
 function isEnabled(name, unleashContext = {}, defaultValue = false) {
@@ -93,7 +93,7 @@ function isEnabled(name, unleashContext = {}, defaultValue = false) {
 
 ## Activation Strategies
 Activation strategies are defined and configured in the unleash-service. It is up to the client
-to provide the actual implementation of each actication strategy. 
+to provide the actual implementation of each activation strategy. 
 
 Unleash also ships with a few built-in strategies and it is expected that client SDK's implement 
 these. Read more about these [activation strategies](activation-strategies.md). For the built-in
@@ -108,20 +108,20 @@ the user to implement their own activation strategies, and register those in the
 
 ## Fetching feature toggles (polling)
 The client implementation should fetch toggles in the background, as regular polling. 
-In thread based environment (e.g. Java) this needs to be done on a sparate thread. 
+In thread based environment (e.g. Java) this needs to be done on a separate thread. 
 The default poll interval should be **15 seconds**, and it should be configurable. 
 
 
 ## Client registration
 Client implementation should at initialization register with the unleash-server. 
-The should send a registration as specified in the [api documentation](api/metrics-api.md#client-registration).
+The should send a registration as specified in the [api documentation](api/client/register-api.md).
 The registration must include all fields specified.
 
 
 ## Metrics
-Clients are expectedd to send metrics back to Unleash API at regualr intervals. The metrics is a list 
+Clients are expected to send metrics back to Unleash API at regular intervals. The metrics is a list 
 of used toggles and how many times they evaluated to *yes* or *no* in the current period. 
-Read more about how to send the metrics in the [metrics-api](api/metrics-api.md) documentation.
+Read more about how to send the metrics in the [metrics-api](api/client/metrics-api.md) documentation.
 
 
 ## Backup Feature Toggles
